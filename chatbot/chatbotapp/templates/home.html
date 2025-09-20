@@ -95,6 +95,7 @@
             event.preventDefault();
             var form = $(this);
             var userInput = $input.val();
+            var $input = $('#userInput');
             console.log(userInput);
 
             // HTMLのフォームを設定する
@@ -105,8 +106,9 @@
                 dataType:'text',
             })
                 .done(function(statement){
+                    $('input[name="hoge"]').val();
                     console.log(userInput);
-                    createRow_user('あなた：' + userInput);
+                    createRow_user('あなた：' + $input.val());
                     createRow_bot(statement);
                     // ログ枠のスクロールを最後の結果に合わせる
                     $chatlog[0].scrollTop = $chatlog[0].scrollHeight;
